@@ -9,7 +9,6 @@ lh = "localhost"
 rn = "root"
 os.system('color 6')
 pw = input("Enter Server Password : ")
-os.system('color 1')
 cource_name = input("Enter Cource Name : ")
 cource_name = cource_name.capitalize()
 connection = functions.create_server_connection(lh, rn, pw)
