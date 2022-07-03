@@ -1,3 +1,4 @@
+import os
 import datetime
 import functions
 import pandas as pd  # pip install pandas
@@ -6,15 +7,17 @@ from IPython.display import display  # pip install display
 
 lh = "localhost"
 rn = "root"
+os.system('color 6')
 pw = input("Enter Server Password : ")
+os.system('color 1')
 cource_name = input("Enter Cource Name : ")
 cource_name = cource_name.capitalize()
 connection = functions.create_server_connection(lh, rn, pw)
-
+os.system('color F')
+print("\t\t\t\t\t<--WELCOME TO SHYAM COMPUTER ACADEMY-->\n\n")
 while True:
-    print("<--WELCOME TO SHYAM COMPUTER ACADEMY-->")
     print("1. For Creating Student Data in Server")
-    print("2. For Storing Details in Server")
+    print("2. For Storing Student & Fee in Server")
     print("3. To Check Fee Status")
     print("4. For Updating Details")
     print("5. For Deleting Details")
@@ -22,6 +25,7 @@ while True:
 
     n = int(input("Select and Enter : "))
     if n == 1:  # OK
+        os.system('color 6')
         student_name = input("Enter Student Name : ")
         student_name = student_name.lower()
         create_databse_query = f"Create database {cource_name}"
@@ -35,6 +39,7 @@ while True:
         fee_paid int);"""
         functions.exe_query(connection, ct)
     elif n == 2:  # OK
+        os.system('color 6')
         sdt_nm = input("Enter Student Name : ")
         admn_no = int(input("Enter Admission Number : "))
         cls = input("Enter Class Of Student : ")
@@ -47,7 +52,9 @@ while True:
         connection = functions.create_db_connection(lh, rn, pw, cource_name)
         functions.exe_query(connection, use_db)
         functions.exe_query(connection, data_store)
+        os.system('color 2')
     elif n == 3:  # OK
+        os.system('color 6')
         tf = int(input(f"Enter Total Fee of {cource_name} Cource : "))
         student_name = input("Enter Student Name : ")
         student_name = student_name.lower()
@@ -69,6 +76,7 @@ while True:
             print(f"Remaining Fee Is ₹{rm}")
             print("It Is Requested To Student To Pay Fee As Soon As Possible.")
     elif n == 4:  # OK
+        os.system('color 4')
         print("1.change student name\n2.change student class\n3.change student admission number")
         s = int(input("Select And Enter : "))
         student_name = input("Enter Student Name : ")
@@ -83,6 +91,8 @@ while True:
             where admn_no = {admn_no};"""
             functions.exe_query(connection, use_db)
             functions.exe_query(connection, update)
+            os.system('color 2')
+            print("Sucessfully Updated!")
         elif s == 2:
             s1 = input("Enter New Class : ")
             admn_no = int(input("Enter Admission Number : "))
@@ -95,6 +105,8 @@ while True:
                 lh, rn, pw, cource_name)
             functions.exe_query(connection, use_db)
             functions.exe_query(connection, update)
+            os.system('color 2')
+            print("Sucessfully Updated!")
         elif s == 3:
             admn_no = int(input("Enter Old Admission Number : "))
             new_admn_no = input("Enter New Admission Number : ")
@@ -109,9 +121,12 @@ while True:
                 lh, rn, pw, cource_name)
             functions.exe_query(connection, use_db)
             functions.exe_query(connection, update)
+            os.system('color 2')
+            print("Sucessfully Updated!")
         else:
             print("Select And Enter Form name/class/admission number")
     elif n == 5:  # OK
+        os.system('color 4')
         print("Warning!! \nThis deletes all data of student in server")
         i = input("[Y/N]")
         if i in "Yy":
@@ -124,18 +139,21 @@ while True:
                     lh, rn, pw, cource_name)
                 functions.exe_query(connection, use_db)
                 functions.exe_query(connection, delete)
+                os.system('color 2')
                 print("Sucessfully Deleted...")
             except:
                 print("Deletion Unsucessfull...")
         else:
             pass
     elif n == 6:  # OK
+        os.system('color 6')
         try:
             lh = "localhost"
             rn = "root"
             pw = input("Enter Server Password Again : ")
             connection = functions.create_server_connection(lh, rn, pw)
-            print("Authicated Admin...Login Sucessfull...")
+            os.system('color 2')
+            print("Authicated..Login Sucessfull...")
             v = 1
         except:
             v = 0
@@ -150,6 +168,7 @@ while True:
                 lh, rn, pw, cource_name)
             results = functions.exe_query(connection, use_db)
             results = functions.read_query(connection, q1)
+            os.system('color 2')
             db = []
             for rst in results:
                 res = list(rst)
@@ -196,3 +215,5 @@ while True:
             break
 
 print(" >_< THANK YOU >_< ")
+print("ⒸCopyright Content")
+print("Developed By Master V DURGEHSWAR RAO")
