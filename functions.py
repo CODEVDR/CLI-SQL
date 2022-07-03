@@ -1,4 +1,5 @@
 #import Modules
+import os
 from IPython.display import display
 import mysql.connector
 from mysql.connector import Error
@@ -15,7 +16,8 @@ def create_server_connection(hostname, username, userpassword):
         )
         print("Database Login Sucessfull")
     except:
-        print("Sucess")
+        None
+        os.system("color 4")
     return connection
 
 
@@ -29,7 +31,8 @@ def create_db_connection(host_name, user_name, userpassword, db_name):
             database=db_name
         )
     except:
-        print("Sucess")
+        None
+        os.system("color 4")
     return connection
 
 
@@ -38,7 +41,8 @@ def create_database(connection, query):
     try:
         cursor.execute(query)
     except:
-        print(f"Sucess")
+        None
+        os.system("color 4")
 
 
 def exe_query(connection, query):
@@ -47,7 +51,8 @@ def exe_query(connection, query):
         cursor.execute(query)
         connection.commit()
     except Error as err:
-        print(f"Error: {err}")
+       None
+       os.system("color 4")
 
 
 def read_query(connection, query):
@@ -58,4 +63,5 @@ def read_query(connection, query):
         result = cursor.fetchall()
         return result
     except Error as err:
-        print(f"Error: '{err}'")
+        None
+        os.system("color 4")
