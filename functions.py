@@ -1,38 +1,37 @@
-#import Modules
+#importing Modules
 import os
 from IPython.display import display
-import mysql.connector
+import mysql.connector as sqlctr
 from mysql.connector import Error
 import pandas as pd
 
-
-def create_server_connection(hostname, username, userpassword):
+#server connection
+def create_server_connection(userpassword):
     connection = None
     try:
-        connection = mysql.connector.connect(
-            host=hostname,
-            user=username,
+        connection = sqlctr.connect(
+            host="localhost",
+            user="root",
             password=userpassword
         )
         print("Database Login Sucessfull")
     except:
-        None
-        os.system("color 4")
+        print("Incorrect Password")
+        pass
     return connection
 
 
-def create_db_connection(host_name, user_name, userpassword, db_name):
+def create_db_connection(userpassword, db_name):
     connection = None
     try:
-        connection = mysql.connector.connect(
-            host=host_name,
-            user=user_name,
+        connection = sqlctr.connect(
+            host="localhost",
+            user="root",
             password=userpassword,
             database=db_name
         )
     except:
-        None
-        os.system("color 4")
+        pass
     return connection
 
 
@@ -41,8 +40,7 @@ def create_database(connection, query):
     try:
         cursor.execute(query)
     except:
-        None
-        os.system("color 4")
+        pass
 
 
 def exe_query(connection, query):
@@ -50,9 +48,8 @@ def exe_query(connection, query):
     try:
         cursor.execute(query)
         connection.commit()
-    except Error as err:
-       None
-       os.system("color 4")
+    except:
+       pass
 
 
 def read_query(connection, query):
@@ -62,6 +59,5 @@ def read_query(connection, query):
         cursor.execute(query)
         result = cursor.fetchall()
         return result
-    except Error as err:
-        None
-        os.system("color 4")
+    except:
+        pass
