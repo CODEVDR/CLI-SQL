@@ -10,8 +10,8 @@ def create_server_connection(userpassword):
     connection = None
     try:
         connection = sqlctr.connect(
-            host="localhost",
-            user="root",
+            host="localhost",#You Can Change Localhost Name According To Your localhost name In my case it is localhost
+            user="root",#You Can Change Root Name According To Your Root name In my case it is root
             password=userpassword
         )
         print("Database Login Sucessfull")
