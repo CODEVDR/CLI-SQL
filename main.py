@@ -245,4 +245,4 @@ while True:
 
 print(" >_< THANK YOU >_< ")
 print(" © Copyright Content")
-print("Developed By Master V DURGEHSWAR RAO")
+print("Developed By SCA")
