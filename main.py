@@ -6,7 +6,7 @@ from IPython.display import display  # pip install display
 
 
 pw = input("Enter Server Password : ")
-cource_name = (input("Enter Cource Name : ").capitalize())
+cource_name = (input("Enter Cource Name : ").capitalize())#your sql password to be wntered here.
 connection = functions.create_server_connection(pw)
 # Fee Structures:
 if cource_name == "Python":
@@ -18,7 +18,7 @@ elif cource_name == "C/C++":
 else:
     tf = None
 
-print("\t\t\t\t\t<--WELCOME TO SHYAM COMPUTER ACADEMY-->\n\n")
+print("\t\t\t\t\t<--Your Organization name-->\n\n")
 while True:
     print("Enter 1. For Creating Student Data in Server")
     print("Enter 2. For Storing Student & Fee in Server")
